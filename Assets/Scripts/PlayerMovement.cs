@@ -7,16 +7,11 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb2d;
     public float sideMovementForce;
     public float jumpForce;
+    public float wallJumpReducer;
 
-    private Vector2 jumpVector;
     public bool isPlayerGrounded;
     public bool canDoubleJump;
     public bool isTouchingTheWall;
-
-    void Start ()
-    {
-        jumpVector = new Vector2 (0, jumpForce);
-    }
 
     void Update ()
     {
@@ -52,13 +47,23 @@ public class PlayerMovement : MonoBehaviour
     private void Jump ()
     {
         rb2d.velocity = new Vector2 (rb2d.velocity.x, 0);
-        rb2d.AddForce(jumpVector);
+        rb2d.AddForce
+        (
+            new Vector2 (0, jumpForce)
+        );
     }
 
     private void WallJump ()
     {
         rb2d.velocity = new Vector2 (0, 0);
-        rb2d.AddForce(new Vector2 (0.5f * jumpForce, 0.5f * jumpForce));
+        rb2d.AddForce
+        (
+            new Vector2
+            (
+                wallJumpReducer * jumpForce,
+                wallJumpReducer * jumpForce
+            )
+        );
     }
 
     void OnCollisionEnter2D (Collision2D c)
