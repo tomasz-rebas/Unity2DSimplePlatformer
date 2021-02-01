@@ -25,21 +25,21 @@ public class PlayerMovement : MonoBehaviour
             rb2d.velocity = new Vector2 (sideMovementForce, rb2d.velocity.y);
         }
 
-        if (Input.GetKey("space"))
+        if (Input.GetKeyDown("space"))
         {
             if (isPlayerGrounded)
             {
                 canDoubleJump = true;
                 Jump();
             }
+            else if (isTouchingTheWall && !isPlayerGrounded)
+            {
+                WallJump();
+            }
             else if (canDoubleJump)
             {
                 canDoubleJump = false;
                 Jump();
-            }
-            else if (isTouchingTheWall && !isPlayerGrounded)
-            {
-                WallJump();
             }
         }
     }
