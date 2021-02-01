@@ -68,25 +68,31 @@ public class PlayerMovement : MonoBehaviour
 
     void OnCollisionEnter2D (Collision2D c)
     {
-        if (c.gameObject.name == "Floor")
+        switch (c.gameObject.name)
         {
-            isPlayerGrounded = true;
-        }
-        else if (c.gameObject.name == "ExteriorWallLeft")
-        {
-            isTouchingTheWall = true;
+            case "Floor": 
+                isPlayerGrounded = true;
+                break;
+            case "ExteriorWallLeft":
+                isTouchingTheWall = true;
+                break;
+            default:
+                break;
         }
     }
 
     void OnCollisionExit2D (Collision2D c)
     {
-        if (c.gameObject.name == "Floor")
+        switch (c.gameObject.name)
         {
-            isPlayerGrounded = false;
-        }
-        else if (c.gameObject.name == "ExteriorWallLeft")
-        {
-            isTouchingTheWall = false;
+            case "Floor": 
+                isPlayerGrounded = false;
+                break;
+            case "ExteriorWallLeft":
+                isTouchingTheWall = false;
+                break;
+            default:
+                break;
         }
     }
 }
