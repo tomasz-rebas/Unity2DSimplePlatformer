@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 jumpVector;
     public bool isPlayerGrounded;
     public bool canDoubleJump;
+    public bool isTouchingTheWall;
 
     void Start ()
     {
@@ -41,13 +42,23 @@ public class PlayerMovement : MonoBehaviour
                 canDoubleJump = false;
                 Jump();
             }
+            else if (isTouchingTheWall && !isPlayerGrounded)
+            {
+                WallJump();
+            }
         }
     }
 
-    void Jump ()
+    private void Jump ()
     {
         rb2d.velocity = new Vector2 (rb2d.velocity.x, 0);
         rb2d.AddForce(jumpVector);
+    }
+
+    private void WallJump ()
+    {
+        rb2d.velocity = new Vector2 (0, 0);
+        rb2d.AddForce(new Vector2 (0.5f * jumpForce, 0.5f * jumpForce));
     }
 
     void OnCollisionEnter2D (Collision2D c)
@@ -56,6 +67,10 @@ public class PlayerMovement : MonoBehaviour
         {
             isPlayerGrounded = true;
         }
+        else if (c.gameObject.name == "ExteriorWallLeft")
+        {
+            isTouchingTheWall = true;
+        }
     }
 
     void OnCollisionExit2D (Collision2D c)
@@ -63,6 +78,10 @@ public class PlayerMovement : MonoBehaviour
         if (c.gameObject.name == "Floor")
         {
             isPlayerGrounded = false;
+        }
+        else if (c.gameObject.name == "ExteriorWallLeft")
+        {
+            isTouchingTheWall = false;
         }
     }
 }
