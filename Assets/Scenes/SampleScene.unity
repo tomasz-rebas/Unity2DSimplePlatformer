@@ -371,8 +371,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb2d: {fileID: 529486511}
   sideMovementForce: 10
-  jumpForce: 250
-  wallJumpReducer: 0.5
+  jumpForce: 400
+  wallJumpReducer: 0.8
   isPlayerGrounded: 0
   canDoubleJump: 0
   isTouchingTheWall: 0
