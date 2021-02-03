@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public float sideMovementForce;
     public float jumpForce;
     public float wallJumpReducer;
+    public float touchedWallPositionX;
 
     public bool isPlayerGrounded;
     public bool canDoubleJump;
@@ -55,12 +56,19 @@ public class PlayerMovement : MonoBehaviour
 
     private void WallJump ()
     {
+        float _jumpDirection = 1;
+
+        if (rb2d.position.x - touchedWallPositionX < 0)
+        {
+            _jumpDirection *= -1;
+        }
+
         rb2d.velocity = new Vector2 (0, 0);
         rb2d.AddForce
         (
             new Vector2
             (
-                wallJumpReducer * jumpForce,
+                _jumpDirection * wallJumpReducer * jumpForce,
                 wallJumpReducer * jumpForce
             )
         );
@@ -68,31 +76,26 @@ public class PlayerMovement : MonoBehaviour
 
     void OnCollisionEnter2D (Collision2D c)
     {
-        switch (c.gameObject.name)
+        if (c.gameObject.name == "Floor")
         {
-            case "Floor": 
-                isPlayerGrounded = true;
-                break;
-            case "ExteriorWallLeft":
-                isTouchingTheWall = true;
-                break;
-            default:
-                break;
+            isPlayerGrounded = true;
+        }
+        if (c.gameObject.tag == "VerticalStructure")
+        {
+            isTouchingTheWall = true;
+            touchedWallPositionX = c.gameObject.transform.position.x;
         }
     }
 
     void OnCollisionExit2D (Collision2D c)
     {
-        switch (c.gameObject.name)
+        if (c.gameObject.name == "Floor")
         {
-            case "Floor": 
-                isPlayerGrounded = false;
-                break;
-            case "ExteriorWallLeft":
-                isTouchingTheWall = false;
-                break;
-            default:
-                break;
+            isPlayerGrounded = false;
+        }
+        if (c.gameObject.tag == "VerticalStructure")
+        {
+            isTouchingTheWall = false;
         }
     }
 }
