@@ -552,6 +552,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: InteriorWallRight
       objectReference: {fileID: 0}
+    - target: {fileID: 2002615941608076980, guid: 6b4fc93a97a78714badf19ba1120555e,
+        type: 3}
+      propertyPath: m_TagString
+      value: VerticalStructure
+      objectReference: {fileID: 0}
     - target: {fileID: 2002615941651952000, guid: 6b4fc93a97a78714badf19ba1120555e,
         type: 3}
       propertyPath: m_Color.b
@@ -571,6 +576,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DoorGreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 2002615941651952002, guid: 6b4fc93a97a78714badf19ba1120555e,
+        type: 3}
+      propertyPath: m_TagString
+      value: VerticalStructure
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b4fc93a97a78714badf19ba1120555e, type: 3}
@@ -823,7 +833,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1989488478}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: TestObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -910,10 +920,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: InteriorWallLeft
       objectReference: {fileID: 0}
+    - target: {fileID: 2002615941608076980, guid: 6b4fc93a97a78714badf19ba1120555e,
+        type: 3}
+      propertyPath: m_TagString
+      value: VerticalStructure
+      objectReference: {fileID: 0}
     - target: {fileID: 2002615941651952002, guid: 6b4fc93a97a78714badf19ba1120555e,
         type: 3}
       propertyPath: m_Name
       value: DoorBlue
+      objectReference: {fileID: 0}
+    - target: {fileID: 2002615941651952002, guid: 6b4fc93a97a78714badf19ba1120555e,
+        type: 3}
+      propertyPath: m_TagString
+      value: VerticalStructure
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b4fc93a97a78714badf19ba1120555e, type: 3}

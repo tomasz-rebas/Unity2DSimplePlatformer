@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1165277836944809731}
   m_Layer: 0
   m_Name: ExteriorWall
-  m_TagString: Untagged
+  m_TagString: VerticalStructure
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

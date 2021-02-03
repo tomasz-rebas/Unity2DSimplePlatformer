@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2002615940901414515}
   m_Layer: 0
   m_Name: InteriorWall
-  m_TagString: Untagged
+  m_TagString: VerticalStructure
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
