@@ -373,6 +373,7 @@ MonoBehaviour:
   sideMovementForce: 15
   jumpForce: 800
   wallJumpReducer: 0.8
+  touchedWallPositionX: 0
   isPlayerGrounded: 0
   canDoubleJump: 0
   isTouchingTheWall: 0
