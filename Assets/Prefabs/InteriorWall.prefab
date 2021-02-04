@@ -60,7 +60,7 @@ Transform:
   m_GameObject: {fileID: 2002615941608076980}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -15, y: 27, z: 0}
-  m_LocalScale: {x: 3, y: 51, z: 1}
+  m_LocalScale: {x: 3, y: 49, z: 1}
   m_Children: []
   m_Father: {fileID: 2002615940901414515}
   m_RootOrder: 1
@@ -168,8 +168,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2002615941651952002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15, y: -1, z: 0}
-  m_LocalScale: {x: 2, y: 5, z: 1}
+  m_LocalPosition: {x: -15, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 6, z: 1}
   m_Children: []
   m_Father: {fileID: 2002615940901414515}
   m_RootOrder: 0
@@ -322,5 +322,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 2002615941651952001}
-  offsetY: 4.5
+  offsetY: 5.5
   openingSpeed: 25

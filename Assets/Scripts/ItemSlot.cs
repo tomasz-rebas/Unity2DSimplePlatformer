@@ -12,11 +12,13 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDrag
 
     public void OnBeginDrag (PointerEventData eventData)
     {
-        Debug.Log("Down");
+        Debug.Log(eventData.position);
+        Debug.Log(eventData.rawPointerPress.name);
     }
 
     public void OnEndDrag (PointerEventData eventData)
     {
-        Debug.Log("Up");
+        Debug.Log(eventData.position);
+        Debug.Log(eventData.rawPointerPress.name);
     }
 }
