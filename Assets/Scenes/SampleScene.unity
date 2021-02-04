@@ -1249,6 +1249,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6783187339712954704, guid: f0a0cbbb024ebda47962feab730b838f,
         type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 125696e8e89cda246a2f2b767477884d,
+        type: 3}
+    - target: {fileID: 6783187339712954704, guid: f0a0cbbb024ebda47962feab730b838f,
+        type: 3}
       propertyPath: m_Color.b
       value: 0.39607847
       objectReference: {fileID: 0}
@@ -1690,6 +1696,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: KeyBlue
       objectReference: {fileID: 0}
+    - target: {fileID: 6783187339712954704, guid: f0a0cbbb024ebda47962feab730b838f,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 125696e8e89cda246a2f2b767477884d,
+        type: 3}
     - target: {fileID: 6783187339712954704, guid: f0a0cbbb024ebda47962feab730b838f,
         type: 3}
       propertyPath: m_Color.b
