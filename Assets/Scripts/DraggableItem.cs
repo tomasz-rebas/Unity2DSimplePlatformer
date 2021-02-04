@@ -19,10 +19,13 @@ public class DraggableItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
         float _x = eventData.position.x;
         float _y = eventData.position.y;
 
-        item.position = cam.ScreenToWorldPoint(new Vector3 (_x, _y, cam.nearClipPlane));
+        item.position = cam.ScreenToWorldPoint(new Vector3 (_x, _y, 0f - cam.transform.position.z));
     }
 
-    public void OnBeginDrag (PointerEventData eventData) {}
+    public void OnBeginDrag (PointerEventData eventData)
+    {
+        Debug.Log("Start dragging.");
+    }
 
     public void OnEndDrag (PointerEventData eventData)
     {
