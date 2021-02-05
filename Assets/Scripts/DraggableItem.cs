@@ -6,26 +6,22 @@ using UnityEngine.UI;
 
 public class DraggableItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
-    [System.Serializable] 
-    public class ItemSlots
-    {
-        public RectTransform slot1;
-        public RectTransform slot2;
-    }
-
+    public RectTransform itemSlots;
     public RectTransform itemUi;
     public Transform item;
-    public ItemSlots itemSlots = new ItemSlots();
 
     private Transform itemIcon;
-    private GraphicRaycaster raycast1;
+    private List<GraphicRaycaster> raycasters = new List<GraphicRaycaster>();
     private GraphicRaycaster raycast2;
 
     void Start ()
     {
         itemIcon = item.Find("Icon");
-        raycast1 = itemSlots.slot1.gameObject.GetComponent<GraphicRaycaster>();
-        raycast2 = itemSlots.slot2.gameObject.GetComponent<GraphicRaycaster>();
+
+        foreach (RectTransform child in itemSlots)
+        {
+            raycasters.Add(child.GetComponent<GraphicRaycaster>());
+        }
     }
 
     public void OnDrag (PointerEventData eventData)
@@ -41,25 +37,32 @@ public class DraggableItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
 
     public void OnEndDrag (PointerEventData eventData)
     {
-        List<RaycastResult> results = new List<RaycastResult>();
-        raycast1.Raycast(eventData, results);
-
         bool didHitItemSlot = false;
         Vector3 itemSlotPosition = new Vector3();
 
-        foreach (RaycastResult result in results)
+        foreach (GraphicRaycaster raycaster in raycasters)
         {
-            if (result.gameObject.name == "ItemSlot1")
+            List<RaycastResult> results = new List<RaycastResult>();
+            raycaster.Raycast(eventData, results);
+
+            foreach (RaycastResult result in results)
             {
-                didHitItemSlot = true;
-                itemSlotPosition = result.gameObject.transform.position;
+                if (result.gameObject.name == "ItemSlot1" || result.gameObject.name == "ItemSlot2")
+                {
+                    didHitItemSlot = true;
+                    itemSlotPosition = result.gameObject.transform.position;
+                    break;
+                }
+            }
+
+            if (didHitItemSlot)
+            {
                 break;
             }
         }
 
         if (didHitItemSlot)
         {
-            Debug.Log("Item slot hit!");
             itemUi.position = itemSlotPosition;
         }
         else
