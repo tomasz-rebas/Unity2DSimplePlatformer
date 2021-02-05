@@ -45,12 +45,14 @@ public class DraggableItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
         raycast1.Raycast(eventData, results);
 
         bool didHitItemSlot = false;
+        Vector3 itemSlotPosition = new Vector3();
 
         foreach (RaycastResult result in results)
         {
             if (result.gameObject.name == "ItemSlot1")
             {
                 didHitItemSlot = true;
+                itemSlotPosition = result.gameObject.transform.position;
                 break;
             }
         }
@@ -58,6 +60,7 @@ public class DraggableItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
         if (didHitItemSlot)
         {
             Debug.Log("Item slot hit!");
+            itemUi.position = itemSlotPosition;
         }
         else
         {
