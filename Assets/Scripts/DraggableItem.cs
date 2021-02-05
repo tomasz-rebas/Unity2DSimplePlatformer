@@ -12,7 +12,7 @@ public class DraggableItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
 
     private Transform itemIcon;
     private List<GraphicRaycaster> raycasters = new List<GraphicRaycaster>();
-    private GraphicRaycaster raycast2;
+    private List<string> slotNames = new List<string>();
 
     void Start ()
     {
@@ -21,6 +21,7 @@ public class DraggableItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
         foreach (RectTransform child in itemSlots)
         {
             raycasters.Add(child.GetComponent<GraphicRaycaster>());
+            slotNames.Add(child.name);
         }
     }
 
@@ -47,7 +48,7 @@ public class DraggableItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
 
             foreach (RaycastResult result in results)
             {
-                if (result.gameObject.name == "ItemSlot1" || result.gameObject.name == "ItemSlot2")
+                if (slotNames.Contains(result.gameObject.name))
                 {
                     didHitItemSlot = true;
                     itemSlotPosition = result.gameObject.transform.position;
