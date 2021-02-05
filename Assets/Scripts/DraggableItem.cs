@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class DraggableItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
@@ -17,56 +18,51 @@ public class DraggableItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
     public ItemSlots itemSlots = new ItemSlots();
 
     private Transform itemIcon;
+    private GraphicRaycaster raycast1;
+    private GraphicRaycaster raycast2;
 
     void Start ()
     {
         itemIcon = item.Find("Icon");
-        // Debug.Log("slot1.position = " + itemSlots.slot1.position);
-        // Debug.Log("slot2.position = " + itemSlots.slot2.position);
-
-        // Debug.Log("slot1.rect.height = " + itemSlots.slot1.rect.height);
-        // Debug.Log("slot2.rect.width = " + itemSlots.slot2.rect.width);
+        raycast1 = itemSlots.slot1.gameObject.GetComponent<GraphicRaycaster>();
+        raycast2 = itemSlots.slot2.gameObject.GetComponent<GraphicRaycaster>();
     }
 
     public void OnDrag (PointerEventData eventData)
     {
         itemUi.position = eventData.position;
-        //Debug.Log(eventData.position);
     }
 
     public void OnBeginDrag (PointerEventData eventData)
     {
         showUiItem();
         hideSceneItem();
-        Debug.Log("Start dragging.");
     }
 
     public void OnEndDrag (PointerEventData eventData)
     {
-        Debug.Log("OnEndDrag called.");
+        List<RaycastResult> results = new List<RaycastResult>();
+        raycast1.Raycast(eventData, results);
 
-        if (eventData.hovered.Count > 0)
+        bool didHitItemSlot = false;
+
+        foreach (RaycastResult result in results)
         {
-            bool didFindItemSlot = false;
+            if (result.gameObject.name == "ItemSlot1")
+            {
+                didHitItemSlot = true;
+                break;
+            }
+        }
 
-            foreach (GameObject _go in eventData.hovered)
-            {
-                Debug.Log("Iterating! " + _go.name);
-                if (_go.name == "ItemSlot1" || _go.name == "ItemSlot2")
-                {
-                    didFindItemSlot = true;
-                }
-            }
-
-            if (didFindItemSlot)
-            {
-                Debug.Log("Key dropped in the item slot.");
-            }
-            else
-            {
-                showSceneItem();
-                hideUiItem();
-            }
+        if (didHitItemSlot)
+        {
+            Debug.Log("Item slot hit!");
+        }
+        else
+        {
+            showSceneItem();
+            hideUiItem();
         }
     }
 
