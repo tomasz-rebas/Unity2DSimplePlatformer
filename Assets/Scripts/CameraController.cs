@@ -14,7 +14,7 @@ public class CameraController : MonoBehaviour
 
     public Transform playerTransform;
     public Transform cameraTransform;
-    public Bounds bounds = new Bounds() ; 
+    public Bounds bounds = new Bounds(); 
 
     void Update ()
     {
