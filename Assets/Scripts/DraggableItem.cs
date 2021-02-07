@@ -8,13 +8,14 @@ public class DraggableItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
 {
     public RectTransform itemSlots;
     public RectTransform itemUi;
-    public Transform item;
 
+    private Transform item;
     private Transform itemIcon;
     private List<GraphicRaycaster> raycasters = new List<GraphicRaycaster>();
 
     void Start ()
     {
+        item = gameObject.GetComponent<Transform>();
         itemIcon = item.Find("Icon");
 
         foreach (RectTransform child in itemSlots)
