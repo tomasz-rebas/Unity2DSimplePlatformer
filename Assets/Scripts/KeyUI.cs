@@ -10,10 +10,12 @@ public class KeyUI : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHan
 
     private RectTransform keyUi;
     private Vector3 keyUiDefaultPosition;
+    private Transform doorDetectionArea;
 
     void Start ()
     {
         keyUi = gameObject.GetComponent<RectTransform>();
+        doorDetectionArea = door.parent.Find("DetectionArea");
     }
 
     public void OnDrag (PointerEventData eventData)
@@ -32,9 +34,10 @@ public class KeyUI : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHan
         RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero);
         if (hit.collider != null)
         {
-            if (hit.collider.name == "DoorBlue")
+            if (hit.collider.name == door.name)
             {
-                Debug.Log("Blue door hit.");
+                doorDetectionArea.gameObject.SetActive(true);
+                keyUi.gameObject.SetActive(false);
             }
             else
             {
