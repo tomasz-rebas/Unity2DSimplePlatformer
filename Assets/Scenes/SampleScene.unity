@@ -240,6 +240,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ItemSlot2
       objectReference: {fileID: 0}
+    - target: {fileID: 7753502886960996775, guid: a1216a99ef022a542a04e6bd744d679d,
+        type: 3}
+      propertyPath: m_TagString
+      value: ItemSlot
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1216a99ef022a542a04e6bd744d679d, type: 3}
 --- !u!224 &364798324 stripped
@@ -1412,7 +1417,7 @@ PrefabInstance:
     - target: {fileID: 1844203276970748238, guid: f0a0cbbb024ebda47962feab730b838f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1844203276970748238, guid: f0a0cbbb024ebda47962feab730b838f,
         type: 3}
@@ -1847,6 +1852,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1839020824}
   m_CullTransparentMesh: 0
+--- !u!114 &1970082945 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7634930030756894027, guid: a1216a99ef022a542a04e6bd744d679d,
+    type: 3}
+  m_PrefabInstance: {fileID: 7753502886220134663}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be0c81a317766b74b94200e806976337, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1989488477
 GameObject:
   m_ObjectHideFlags: 0
@@ -1901,6 +1918,11 @@ PrefabInstance:
       objectReference: {fileID: 684358129}
     - target: {fileID: 1044220115172895844, guid: f0a0cbbb024ebda47962feab730b838f,
         type: 3}
+      propertyPath: itemSlot
+      value: 
+      objectReference: {fileID: 1970082945}
+    - target: {fileID: 1044220115172895844, guid: f0a0cbbb024ebda47962feab730b838f,
+        type: 3}
       propertyPath: raycast1
       value: 
       objectReference: {fileID: 0}
@@ -1937,7 +1959,7 @@ PrefabInstance:
     - target: {fileID: 1844203276970748238, guid: f0a0cbbb024ebda47962feab730b838f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1844203276970748238, guid: f0a0cbbb024ebda47962feab730b838f,
         type: 3}
@@ -2410,6 +2432,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ItemSlot1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753502886960996775, guid: a1216a99ef022a542a04e6bd744d679d,
+        type: 3}
+      propertyPath: m_TagString
+      value: ItemSlot
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1216a99ef022a542a04e6bd744d679d, type: 3}

@@ -72,3 +72,4 @@ crashlytics-build.properties
 
 # Custom
 /Assets/Scripts/test/*
+/Assets/Scripts/test.meta
