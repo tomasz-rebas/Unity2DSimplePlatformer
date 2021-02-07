@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 2332117900799742858}
   - component: {fileID: 8989441303849937458}
   - component: {fileID: 1720950014191482974}
+  - component: {fileID: 2393349932077227460}
   m_Layer: 5
-  m_Name: KeyBlueUI
+  m_Name: KeyUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,3 +76,15 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2393349932077227460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3518718231674281480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2932d958be60714a88a36306132eff9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
