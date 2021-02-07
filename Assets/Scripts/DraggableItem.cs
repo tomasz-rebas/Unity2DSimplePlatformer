@@ -69,6 +69,7 @@ public class DraggableItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
         if (didHitItemSlot)
         {
             itemUi.position = itemSlotPosition;
+            item.gameObject.SetActive(false);
         }
         else
         {
