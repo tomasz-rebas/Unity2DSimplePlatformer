@@ -51,11 +51,11 @@ public class DraggableItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
                 {
                     ItemSlot _slot = result.gameObject.GetComponent<ItemSlot>();
 
-                    if (!_slot.isTaken)
+                    if (_slot.storedItemName == "")
                     {
                         didHitItemSlot = true;
                         itemSlotPosition = result.gameObject.transform.position;
-                        _slot.isTaken = true;
+                        _slot.storedItemName = result.gameObject.name;
                         break;
                     }
                 }

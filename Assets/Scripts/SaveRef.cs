@@ -9,9 +9,6 @@ public class SaveRef : MonoBehaviour
     public Transform keyBlue;
     public Transform keyGreen;
 
-    public RectTransform keyUiBlue;
-    public RectTransform keyUiGreen;
-
     public RectTransform itemSlot1;
     public RectTransform itemSlot2;
 }

@@ -3,20 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ItemSlot : MonoBehaviour/*, IDragHandler, IBeginDragHandler, IEndDragHandler*/
+public class ItemSlot : MonoBehaviour
 {
-    private bool _isTaken = false;
+    private string _storedItemName = "";
 
-    public bool isTaken
+    public string storedItemName
     {
-        get => _isTaken;
+        get => _storedItemName;
         set
         {
-            _isTaken = value;
+            _storedItemName = value;
         }
     }
-
-    // public void OnDrag (PointerEventData eventData) {}
-    // public void OnBeginDrag (PointerEventData eventData) {}
-    // public void OnEndDrag (PointerEventData eventData) {}
 }
