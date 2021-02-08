@@ -100,7 +100,7 @@ public class SaveRef : MonoBehaviour
         keyGreenUi.gameObject.SetActive(false);
 
         doorBlueDetectionArea.gameObject.SetActive(false);
-        doorBlueDetectionArea.gameObject.SetActive(false);
+        doorGreenDetectionArea.gameObject.SetActive(false);
         
         SaveSystem.SaveGame(this);
     }
