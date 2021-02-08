@@ -8,4 +8,9 @@ public class SaveRef : MonoBehaviour
     public Transform keyBlue;
     public Transform keyGreen;
     public RectTransform itemSlots;
+
+    void OnApplicationQuit()
+    {
+        SaveSystem.SaveGame(this);
+    }
 }

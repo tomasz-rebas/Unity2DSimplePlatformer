@@ -8,7 +8,7 @@ public class TestScript : MonoBehaviour
 
     void Start ()
     {
-        SaveSystem.SaveGame(saveRef);
+        SaveSystem.LoadGame();
     }
 
     public void LoadLevel ()
