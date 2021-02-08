@@ -5,7 +5,6 @@ using System.Runtime.Serialization.Formatters.Binary;
 public static class SaveSystem
 {
     private static string path = Application.persistentDataPath + "/save.dat";
-    //private static string path = "D:/desktop/save.dat";
 
     public static void SaveGame (SaveRef saveRef)
     {
