@@ -7,6 +7,8 @@ public class SaveData
 {
     public float[] position;
     public List<string> inventory = new List<string>();
+    public bool doorBlueOpen;
+    public bool doorGreenOpen;
 
     public SaveData (SaveRef saveRef)
     {
@@ -20,5 +22,11 @@ public class SaveData
         {
             inventory.Add(slot.GetComponent<ItemSlot>().storedItemName);
         }
+
+        Transform doorBlueDetectionArea = saveRef.doorBlue.parent.Find("DetectionArea");
+        Transform doorGreenDetectionArea = saveRef.doorGreen.parent.Find("DetectionArea");
+
+        doorBlueOpen = doorBlueDetectionArea.gameObject.activeSelf;
+        doorGreenOpen = doorGreenDetectionArea.gameObject.activeSelf;
     }
 }
