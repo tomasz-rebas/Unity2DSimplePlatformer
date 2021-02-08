@@ -35,13 +35,14 @@ public class KeyUI : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHan
     {
         Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero);
+
         if (hit.collider != null)
         {
             if (hit.collider.name == door.name)
             {
                 activateDoor();
                 keyUi.gameObject.SetActive(false);
-                removeFromInventory();
+                removeItemFromInventory();
             }
             else
             {
@@ -54,7 +55,7 @@ public class KeyUI : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHan
         }
     }
 
-    private void removeFromInventory ()
+    private void removeItemFromInventory ()
     {
         foreach (RectTransform slot in itemSlots)
         {
