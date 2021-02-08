@@ -85,6 +85,7 @@ public class SaveRef : MonoBehaviour
     public void ResetGame ()
     {
         player.position = new Vector3 (0, -1, 0);
+        player.GetComponent<Rigidbody2D>().velocity = new Vector2 (0, 0);
 
         keyBlue.position = new Vector3 (-4, -2.3f, 0);
         keyGreen.position = new Vector3 (30, -2.3f, 0);
