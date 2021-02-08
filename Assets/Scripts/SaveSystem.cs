@@ -6,11 +6,11 @@ public static class SaveSystem
 {
     private static string path = Application.persistentDataPath + "/save.dat";
 
-    public static void SaveGame (SaveRef saveRef)
+    public static void SaveGame (GameManager gameManager)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         FileStream stream = new FileStream(path, FileMode.Create);
-        SaveData data = new SaveData(saveRef);
+        SaveData data = new SaveData(gameManager);
         formatter.Serialize(stream, data);
         stream.Close();
     }

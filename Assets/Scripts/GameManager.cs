@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SaveRef : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     public Transform player;
 

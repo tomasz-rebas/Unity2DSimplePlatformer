@@ -10,21 +10,21 @@ public class SaveData
     public bool doorBlueOpen;
     public bool doorGreenOpen;
 
-    public SaveData (SaveRef saveRef)
+    public SaveData (GameManager gameManager)
     {
         position = new float[3];
 
-        position[0] = saveRef.player.transform.position.x;
-        position[1] = saveRef.player.transform.position.y;
-        position[2] = saveRef.player.transform.position.z;
+        position[0] = gameManager.player.transform.position.x;
+        position[1] = gameManager.player.transform.position.y;
+        position[2] = gameManager.player.transform.position.z;
 
-        foreach (RectTransform slot in saveRef.itemSlots)
+        foreach (RectTransform slot in gameManager.itemSlots)
         {
             inventory.Add(slot.GetComponent<ItemSlot>().storedItemName);
         }
 
-        Transform doorBlueDetectionArea = saveRef.doorBlue.parent.Find("DetectionArea");
-        Transform doorGreenDetectionArea = saveRef.doorGreen.parent.Find("DetectionArea");
+        Transform doorBlueDetectionArea = gameManager.doorBlue.parent.Find("DetectionArea");
+        Transform doorGreenDetectionArea = gameManager.doorGreen.parent.Find("DetectionArea");
 
         doorBlueOpen = doorBlueDetectionArea.gameObject.activeSelf;
         doorGreenOpen = doorGreenDetectionArea.gameObject.activeSelf;
