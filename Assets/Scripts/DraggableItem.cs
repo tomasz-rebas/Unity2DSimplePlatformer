@@ -31,8 +31,8 @@ public class DraggableItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
 
     public void OnBeginDrag (PointerEventData eventData)
     {
-        showUiItem();
-        hideSceneItem();
+        ShowUiItem();
+        HideSceneItem();
     }
 
     public void OnEndDrag (PointerEventData eventData)
@@ -74,13 +74,13 @@ public class DraggableItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
         }
         else
         {
-            showSceneItem();
-            hideUiItem();
+            ShowSceneItem();
+            HideUiItem();
         }
     }
 
-    private void showUiItem () {itemUi.gameObject.SetActive(true);}
-    private void hideUiItem () {itemUi.gameObject.SetActive(false);}
-    private void showSceneItem () {itemIcon.gameObject.SetActive(true);}
-    private void hideSceneItem () {itemIcon.gameObject.SetActive(false);}
+    private void ShowUiItem () {itemUi.gameObject.SetActive(true);}
+    private void HideUiItem () {itemUi.gameObject.SetActive(false);}
+    private void ShowSceneItem () {itemIcon.gameObject.SetActive(true);}
+    private void HideSceneItem () {itemIcon.gameObject.SetActive(false);}
 }

@@ -40,9 +40,9 @@ public class KeyUI : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHan
         {
             if (hit.collider.name == door.name)
             {
-                activateDoor();
+                ActivateDoor();
                 keyUi.gameObject.SetActive(false);
-                removeItemFromInventory();
+                RemoveItemFromInventory();
             }
             else
             {
@@ -55,7 +55,7 @@ public class KeyUI : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHan
         }
     }
 
-    private void removeItemFromInventory ()
+    private void RemoveItemFromInventory ()
     {
         foreach (RectTransform slot in itemSlots)
         {
@@ -66,7 +66,7 @@ public class KeyUI : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHan
         }
     }
 
-    private void activateDoor ()
+    private void ActivateDoor ()
     {
         doorDetectionArea.gameObject.SetActive(true);
     }
