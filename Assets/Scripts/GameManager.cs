@@ -99,6 +99,9 @@ public class GameManager : MonoBehaviour
         keyBlueUi.gameObject.SetActive(false);
         keyGreenUi.gameObject.SetActive(false);
 
+        doorBlue.localPosition = new Vector3 (-15f, 0f, 0f);
+        doorGreen.localPosition = new Vector3 (-15f, 0f, 0f);
+
         doorBlueDetectionArea.gameObject.SetActive(false);
         doorGreenDetectionArea.gameObject.SetActive(false);
         
