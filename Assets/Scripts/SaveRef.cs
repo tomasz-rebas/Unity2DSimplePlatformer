@@ -79,6 +79,7 @@ public class SaveRef : MonoBehaviour
 
         doorBlueDetectionArea.gameObject.SetActive(false);
         doorBlueDetectionArea.gameObject.SetActive(false);
-
+        
+        SaveSystem.SaveGame(this);
     }
 }
