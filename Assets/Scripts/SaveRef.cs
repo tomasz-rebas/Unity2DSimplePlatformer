@@ -24,12 +24,18 @@ public class SaveRef : MonoBehaviour
     {
         SaveData data = SaveSystem.LoadGame();
 
+        #region Player position
+
         player.position = new Vector3
         (
             data.position[0],
             data.position[1],
             data.position[2]
         );
+
+        #endregion
+
+        #region Doors
 
         doorBlueDetectionArea = doorBlue.parent.Find("DetectionArea");
         doorGreenDetectionArea = doorGreen.parent.Find("DetectionArea");
@@ -42,18 +48,33 @@ public class SaveRef : MonoBehaviour
 
         if (data.doorGreenOpen)
         {
-            doorBlueDetectionArea.gameObject.SetActive(true);
-            keyBlue.gameObject.SetActive(false);
+            doorGreenDetectionArea.gameObject.SetActive(true);
+            keyGreen.gameObject.SetActive(false);
         }
 
-        // int i = 0;
-        // foreach (RectTransform slot in itemSlots)
-        // {
-        //     if (inventory[i] != "")
-        //     {
+        #endregion
 
-        //     }
-        // }
+        #region Inventory
+
+        int _i = 0;
+        foreach (RectTransform slot in itemSlots)
+        {
+            if (data.inventory[_i] == "KeyBlue")
+            {
+                keyBlue.gameObject.SetActive(false);
+                keyBlueUi.gameObject.SetActive(true);
+                keyBlueUi.position = slot.position;
+            }
+            if (data.inventory[_i] == "KeyGreen")
+            {
+                keyGreen.gameObject.SetActive(false);
+                keyGreenUi.gameObject.SetActive(true);
+                keyGreenUi.position = slot.position;
+            }
+            _i++;
+        }
+
+        #endregion
     }
 
     void OnApplicationQuit ()

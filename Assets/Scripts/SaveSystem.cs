@@ -13,8 +13,8 @@ public static class SaveSystem
         FileStream stream = new FileStream(path, FileMode.Create);
         SaveData data = new SaveData(saveRef);
         formatter.Serialize(stream, data);
-        Debug.Log(data.doorBlueOpen);
-        Debug.Log(data.doorBlueOpen);
+        // Debug.Log(data.doorBlueOpen);
+        // Debug.Log(data.doorBlueOpen);
         stream.Close();
     }
 
