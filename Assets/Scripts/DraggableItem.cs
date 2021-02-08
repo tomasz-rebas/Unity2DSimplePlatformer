@@ -55,7 +55,7 @@ public class DraggableItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
                     {
                         didHitItemSlot = true;
                         itemSlotPosition = result.gameObject.transform.position;
-                        _slot.storedItemName = result.gameObject.name;
+                        _slot.storedItemName = item.name;
                         break;
                     }
                 }

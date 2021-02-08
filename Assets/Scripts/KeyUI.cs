@@ -7,15 +7,18 @@ using UnityEngine.UI;
 public class KeyUI : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
     public Transform door;
+    public Transform key;
 
     private RectTransform keyUi;
     private Vector3 keyUiDefaultPosition;
     private Transform doorDetectionArea;
+    private RectTransform itemSlots;
 
     void Start ()
     {
         keyUi = gameObject.GetComponent<RectTransform>();
         doorDetectionArea = door.parent.Find("DetectionArea");
+        itemSlots = GameObject.Find("ItemSlots").GetComponent<RectTransform>();
     }
 
     public void OnDrag (PointerEventData eventData)
@@ -36,8 +39,9 @@ public class KeyUI : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHan
         {
             if (hit.collider.name == door.name)
             {
-                doorDetectionArea.gameObject.SetActive(true);
+                activateDoor();
                 keyUi.gameObject.SetActive(false);
+                removeFromInventory();
             }
             else
             {
@@ -48,5 +52,21 @@ public class KeyUI : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHan
         {
             keyUi.position = keyUiDefaultPosition;
         }
+    }
+
+    private void removeFromInventory ()
+    {
+        foreach (RectTransform slot in itemSlots)
+        {
+            if (slot.GetComponent<ItemSlot>().storedItemName == key.name)
+            {
+                slot.GetComponent<ItemSlot>().storedItemName = "";
+            }
+        }
+    }
+
+    private void activateDoor ()
+    {
+        doorDetectionArea.gameObject.SetActive(true);
     }
 }
