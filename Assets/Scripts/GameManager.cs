@@ -107,4 +107,9 @@ public class GameManager : MonoBehaviour
         
         SaveSystem.SaveGame(this);
     }
+
+    public void QuitGame ()
+    {
+        Application.Quit();
+    }
 }
